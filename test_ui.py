@@ -27,7 +27,7 @@ def test_price_filter(page: Page):
         text = prices_elements.nth(i).inner_text()
         prices.append(parse_price(text))
 
-    assert len(prices) > 0
+    assert all(1000 <= p <= 30000 for p in prices)
 
 
 def test_sort(page: Page):
